@@ -135,4 +135,15 @@ input, select {
       height: 100%;
     }
 }
+.clearFloat:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
 </style>

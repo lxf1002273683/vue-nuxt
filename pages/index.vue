@@ -75,7 +75,6 @@
 <script>
   export default {
     data (context) {
-      console.log(context.route.name)
       return {
         name: context.route.name,
         height: '0px',

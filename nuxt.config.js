@@ -24,7 +24,7 @@ module.exports = {
   ** Customize the progress-bar color
   */
   loading: false,
-  plugins: ['~plugins/element-ui.js', '~plugins/vue-lazyload.js'],
+  plugins: ['~plugins/element-ui.js', '~plugins/vue-lazyload.js', '~plugins/api.js'],
   /*
   ** Build configuration
   */

@@ -11,7 +11,7 @@
 		  <el-col :offset="6" :lg="14" :sm="14">
 		  	<div class="nav">
 		  		<span><router-link to="/case-studies">Case Studies</router-link></span>
-		  		<span><router-link to="/discovery">Discovery</router-link></span>
+		  		<span><router-link to="/case-studies/digitale/3000">Discovery</router-link></span>
 		  		<span><router-link to="/about">About</router-link></span>
 		  		<span><router-link to="/journal">Journal</router-link></span>
 		  		<span><router-link to="/contact">Contact</router-link></span>
@@ -36,14 +36,10 @@
         } else {
           this.scrolled = false
         }
-      },
-      resize (event) {
-        // console.log(this.$el.clientWidth)
       }
     },
     mounted () {
-      window.addEventListener('mousewheel', this.handleScroll)
-      // window.addEventListener('resize', this.resize)
+      document.addEventListener('mousewheel', this.handleScroll)
     }
   }
 </script>

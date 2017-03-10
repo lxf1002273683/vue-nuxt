@@ -1,6 +1,6 @@
 <template>
    <!-- 向子组件传参数 请求地址  active -->
-  <list url="list1.json" isActive="all" />
+  <list url="list1.json" isActive="all" caseStudies="case-studies" />
 </template>
 <script>
   import List from '~components/caseComponents/lists.vue'

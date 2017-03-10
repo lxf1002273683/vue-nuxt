@@ -14,7 +14,8 @@
         <el-col :lg="11" :sm="11" :xs="24" v-for="item in lists">
           <div class="btn">
             <router-link to="/">
-              <img :src="item.url">
+              <!-- 使用懒加载 -->
+              <img v-lazy.container="item.url">
               <h4>{{item.title}}</h4>
               <span>{{item.text}}</span>
             </router-link>
@@ -25,27 +26,17 @@
   </div>
 </template>
 <script>
-  import axios from 'axios'
   export default {
     data () {
       return {
         lists: {}
       }
     },
-    props: ['url', 'isActive'],
-    methods: {
-      handleScroll (event) {
-        if (event.wheelDelta > 0) {
-          this.scrolled = true
-        } else {
-          this.scrolled = false
-        }
-      }
-    },
+    props: ['url', 'isActive', 'caseStudies'],
     mounted () {
       const that = this
-      this.$store.commit('increment', this.name)
-      axios.get('../list.json')
+      this.$store.commit('increment', this.caseStudies)
+      this.getData('../list.json')
       .then((res) => {
         that.lists = res.data.list
       })
