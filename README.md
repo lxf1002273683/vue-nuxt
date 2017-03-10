@@ -1,6 +1,6 @@
 # nuxt
 
-> 学习nuxt部署环境
+> 学习nuxt部署环境  element-ui
 
 ## Build Setup
 
@@ -23,4 +23,4 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 
 
 未使用状态管理
-element-ui
+
