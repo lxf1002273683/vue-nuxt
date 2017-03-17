@@ -13,7 +13,7 @@
     <el-row>
         <el-col :lg="11" :sm="11" :xs="24" v-for="item in lists">
           <div class="btn">
-            <router-link to="/">
+            <router-link :to="'/case-studies/digitale/'+item.id">
               <!-- 使用懒加载 -->
               <img v-lazy.container="item.url">
               <h4>{{item.title}}</h4>
@@ -25,6 +25,7 @@
     </div>
   </div>
 </template>
+<!-- 使用props进行组件通信 -->
 <script>
   export default {
     data () {
@@ -112,7 +113,9 @@
     span{
       font-size: 1.2em;
       line-height: 1.2em;
+      min-height: 2.4em;
       color: #333;
+      display: block;
     }
   }
 </style>

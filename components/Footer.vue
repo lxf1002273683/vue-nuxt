@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer v-if="$store.state.statusError">
     <div class="main">
 		<el-row>
 		  <el-col :lg="6" :sm="12" :xs="24">

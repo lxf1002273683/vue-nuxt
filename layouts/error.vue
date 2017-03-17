@@ -12,13 +12,21 @@
     </nuxt-link>
   </section>
 </template>
+<!-- 使用状态管理控制header footer消失 -->
 <script>
 export default {
-  props: ['error']
+  props: ['error'],
+  mounted () {
+    this.$store.commit('error', false)
+  }
 }
 </script>
 
 <style scoped>
+.container{
+  margin-top: 10%;
+  text-align: center;
+}
 .title
 {
   margin-top: 15px;

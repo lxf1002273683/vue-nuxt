@@ -146,4 +146,9 @@ input, select {
 .right{
     float: right;
 }
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 12px;
+    }
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-  <header v-if="scrolled" v-bind:class="$store.state.page">
+  <header v-if="scrolled && $store.state.statusError" v-bind:class="$store.state.page">
     <div class="main">
 		<el-row>
 		  <el-col :lg="4" :sm="4" :xs="4">
@@ -11,7 +11,7 @@
 		  <el-col :offset="6" :lg="14" :sm="14">
 		  	<div class="nav">
 		  		<span><router-link to="/case-studies">Case Studies</router-link></span>
-		  		<span><router-link to="/case-studies/digitale/3000">Discovery</router-link></span>
+		  		<span><router-link to="/discovery">Discovery</router-link></span>
 		  		<span><router-link to="/about">About</router-link></span>
 		  		<span><router-link to="/journal">Journal</router-link></span>
 		  		<span><router-link to="/contact">Contact</router-link></span>
@@ -95,13 +95,22 @@
 	.index a{
 		color: #eee;
 	}
-	.case-studies a{
-		color: #212225;
-	}
 	.case-studies{
 		background-color: white;
 		.nav span:after{
 			background: #212225;
+		}
+		a{
+			color: #212225;
+		}
+	}
+	.contact{
+		background-color: #eee;
+		.nav span:after{
+			background: #212225;
+		}
+		a{
+			color: #212225;
 		}
 	}
 </style>

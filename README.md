@@ -1,7 +1,3 @@
-# nuxt
-
-> 学习nuxt部署环境  element-ui
-
 ## Build Setup
 
 ``` bash
@@ -23,4 +19,24 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 
 
 未使用状态管理
+
+## 使用技术
+
+less css预编译
+
+@media  字体响应式
+
+element-ui  响应式布局
+
+axios	ajax请求
+
+lazyload  懒加载图片
+
+store 基本的状态管理使用
+
+自定义api 注入vue
+
+route 使用嵌套 动态路由
+
+自定义组件 传参
 

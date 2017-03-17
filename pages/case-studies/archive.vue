@@ -18,9 +18,7 @@
 	    <div class="b-extraLeads">
 	    	<div class="content">
 	    		<span> Need Help With A Project?</span>
-	    		<div class="btn">
-	    			<router-link to="/case-studies/packaging">Let's Talk</router-link>
-	    		</div>
+    			<router-link class="btn" to="/contact">Let's Talk</router-link>
 	    	</div>
 	    </div>
 		<div class="bg" v-show="show" @click="photograph">

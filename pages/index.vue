@@ -3,13 +3,11 @@
     <el-carousel :height="height">
       <el-carousel-item v-for="item in items">
         <div class="bg"><!-- :style="{backgroundImage: 'url(' + item.url + ')'}" -->
+          <img ref="img" :src="item.url">
           <div class="text">
             <h1>{{item.text}}</h1>
-            <div class="btn">
-              <router-link to="/">Our Studio</router-link>
-            </div>
+            <router-link class="btn" to="/">Our Studio</router-link>
           </div>
-          <img ref="img" :src="item.url">
         </div>
       </el-carousel-item>
     </el-carousel>
@@ -19,31 +17,25 @@
           <div class="referral-text">
             Specialising in eCommerce, we combine innovation with digital craftsmanship to help brands fulfill their potential.
           </div>
-          <div class="btn">
-            <router-link to="/">Our Studio</router-link>
-          </div>
+            <router-link class="btn" to="/">Our Studio</router-link>
         </el-col>
       </el-row>
     </div>
     <div class="grid">
       <el-row>
         <el-col :lg="11" :sm="11" :xs="24">
-          <div class="btn">
-            <router-link to="/">
+            <router-link class="btn" to="/">
               <img src="http://weareadaptable.com/app/uploads/2016/08/a_t_stone.jpg">
               <h4>Stone Group</h4>
               <span>A New Digital Presence for IT Industry Leaders</span>
             </router-link>
-          </div>
         </el-col>
         <el-col :lg="11" :sm="11" :xs="24">
-          <div class="btn">
-            <router-link to="/">
+            <router-link class="btn" to="/">
               <img src="http://weareadaptable.com/app/uploads/2016/08/a_t_intel.jpg">
               <h4>Intelligent Change</h4>
               <span>An Engaging eCommerce Hub For Intelligent Change</span>
             </router-link>
-          </div>
         </el-col>
       </el-row>
     </div>
@@ -53,21 +45,17 @@
         <span>
           Investigating and identifying drivers from across your business's people, process and technology that will lead to more successful outcomes.
         </span>
-        <div class="btn">
-          <router-link to="/">Learn More</router-link>
-        </div>
+          <router-link class="btn" to="/">Learn More</router-link>
       </div>
     </div>
     <div class="section">
       <div class="list" v-for="item in list">
-        <div class="btn">
-            <router-link to="/">
+            <router-link class="btn" to="/">
               <img :src="item.url">
               <h4>{{item.time}}</h4>
               <span>{{item.text}}</span>
               <span class="read-more">Read More</span>
             </router-link>
-          </div>
       </div>
     </div>
   </div>
@@ -121,7 +109,6 @@
     },
     methods: {
       resize (event) {
-        // console.log(this.$refs.img[0].clientHeight)
         this.height = this.$refs.img[0].clientHeight + 'px'
       }
     },
@@ -135,14 +122,13 @@
     }
   }
 </script>
+<!-- store 中getters可以使用返回值 -->
 <style lang="less" scoped>
   .bg{
     width: 100%;
     height: 100%;
     img{
-      position: absolute;
-      z-index: -1;
-      top: 0;
+      position: relative;
       width: 100%;
     }
   }
@@ -156,10 +142,12 @@
   }
   .text{
     width: 80%;
-    position: relative;
+    position: absolute;
     margin: 0 auto;
     top: 25%;
     overflow: hidden;
+    z-index: 2;
+    left: 10%;
     h1{
       font-size: 2.5em;
       line-height: 48px;
