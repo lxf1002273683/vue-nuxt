@@ -13,7 +13,7 @@
     <el-row>
         <el-col :lg="11" :sm="11" :xs="24" v-for="item in lists">
           <div class="btn">
-            <router-link :to="'/case-studies/digitale/'+item.id">
+            <router-link :to="'/case-studies/digitale/'+item.id+'/'+item.name">
               <!-- 使用懒加载 -->
               <img v-lazy.container="item.url">
               <h4>{{item.title}}</h4>
@@ -22,6 +22,10 @@
           </div>
         </el-col>
       </el-row>
+      
+    </div>
+    <div class="loading" v-bind:style="{opacity: loading}">
+      <span></span>
     </div>
   </div>
 </template>
@@ -30,21 +34,79 @@
   export default {
     data () {
       return {
-        lists: {}
+        lists: {},
+        loading: 0,
+        time: '',
+        pageNum: 0
       }
     },
     props: ['url', 'isActive', 'caseStudies'],
+    methods: {
+      callback (e) {
+        const ele = e.target.scrollingElement
+        const n = ele.scrollHeight - ele.clientHeight - ele.scrollTop
+        const that = this
+        clearTimeout(this.time)
+        if (that.pageNum >= 3) {
+          return
+        }
+        if (n <= this.$store.state.index.footerHeight) {
+          this.loading = 1
+          this.time = setTimeout(function () {
+            that.getData('../list.json')
+            .then((res) => {
+              that.lists = that.lists.concat(res.data.list)
+              that.loading = 0
+              that.pageNum++
+            })
+          }, 500)
+        }
+      }
+    },
     mounted () {
       const that = this
       this.$store.commit('increment', this.caseStudies)
-      this.getData('../list.json')
+      this.getData('http://g.cn')
       .then((res) => {
         that.lists = res.data.list
       })
+      this.scroll(this.callback)
     }
   }
 </script>
 <style lang="less" scoped>
+  .loading{
+    transition: all 0.5s;
+    padding-top: 30px;
+    span{
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50% 50%;
+      background-color: black;
+      line-height: 0;
+      position: relative;
+      margin: 0 auto;
+      &:before{
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50% 50%;
+        background-color: black;
+        left: -200%;
+      }
+      &:after{
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50% 50%;
+        background-color: black;
+        right: -200%;
+      }
+    }
+  }
   .main{
     padding: 6em 0;
     width: 90%;
@@ -106,6 +168,7 @@
     }
     img{
       width: 100%;
+      display: block;
     }
     h4{
       color: #eee;
@@ -113,9 +176,12 @@
     span{
       font-size: 1.2em;
       line-height: 1.2em;
+      height: 2.4em;
       min-height: 2.4em;
       color: #333;
       display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 </style>

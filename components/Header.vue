@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-  <header v-if="scrolled && $store.state.statusError" v-bind:class="$store.state.page">
+  <header v-if="scrolled && $store.state.index.statusError" v-bind:class="$store.state.index.page">
     <div class="main">
 		<el-row>
 		  <el-col :lg="4" :sm="4" :xs="4">

@@ -40,3 +40,11 @@ route 使用嵌套 动态路由
 
 自定义组件 传参
 
+手写下拉加载 未封装
+
+引入vue-touchjs手势库 process对象未理解
+
+引入mockjs 模拟数据
+
+route多参数传值
+

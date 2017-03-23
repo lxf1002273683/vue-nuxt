@@ -9,9 +9,12 @@
     "element-ui": "^1.2.3",
     "less": "^2.7.2",
     "less-loader": "^3.0.0",
+    "mockjs": "^1.0.1-beta3",
     "nuxt": "latest",
     "vue-axios": "^2.0.0",
-    "vue-lazyload": "^1.0.0-rc12"
+    "vue-infinite-scroll": "^2.0.0",
+    "vue-lazyload": "^1.0.0-rc12",
+    "vue-touchjs": "0.0.9"
   },
   "scripts": {
     "dev": "nuxt",

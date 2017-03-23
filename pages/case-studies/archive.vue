@@ -12,7 +12,7 @@
 	    <div v-for="item in lists">
 	    	<img :src="item.titleImg">
 			<div class=" marginTop clearFloat">
-				<img v-for="list in item.imgList" @click="photograph(list)" v-lazy.container="list">
+				<img v-for="list in item.imgList" @click="photograph($event,list)" v-lazy.container="list">
 			</div>
 	    </div>
 	    <div class="b-extraLeads">
@@ -21,8 +21,8 @@
     			<router-link class="btn" to="/contact">Let's Talk</router-link>
 	    	</div>
 	    </div>
-		<div class="bg" v-show="show" @click="photograph">
-			<img :src="bg_imgUrl">
+		<div class="bg" v-show="show" v-touch:tap="test">
+			<img :src="bg_imgUrl" v-touch:doubletap="doubletap">
 		</div>
 	</div>
 </template>
@@ -32,14 +32,27 @@
       return {
         lists: {},
         show: false,
-        bg_imgUrl: ''
+        bg_imgUrl: '',
+        doubletapNum: 0.5
       }
     },
     methods: {
-      photograph (url) {
+      photograph (e, url) {
         this.show = !this.show
         if (this.show) {
           this.bg_imgUrl = url
+        }
+      },
+      test (event) {
+        this.show = !this.show
+      },
+      doubletap (event) {
+        if (this.doubletapNum === 0.5) {
+          this.doubletapNum = 0.7
+          event.style.transform = 'translateY(-50%) scale(0.7)'
+        } else {
+          this.doubletapNum = 0.5
+          event.style.transform = 'translateY(-50%) scale(0.5)'
         }
       }
     },
@@ -106,9 +119,10 @@
 		background-color: rgba(0,0,0,0.7);
 		z-index: 1000;
 		img{
-			transform: translateY(-50%) scale(0.7);
+			transform: translateY(-50%) scale(0.5);
 			position: absolute;
 			top: 50%;
+			cursor: pointer;
 		}
 	}
 	.main{

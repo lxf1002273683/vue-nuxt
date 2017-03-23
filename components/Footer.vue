@@ -1,5 +1,5 @@
 <template>
-  <footer v-if="$store.state.statusError">
+  <footer v-if="$store.state.index.statusError">
     <div class="main">
 		<el-row>
 		  <el-col :lg="6" :sm="12" :xs="24">
@@ -44,6 +44,17 @@
     </div>
   </footer>
 </template>
+<script>
+  export default {
+    mounted () {
+      this.$store.commit('getFooterHeight', this.$el.clientHeight)
+      const that = this
+      window.addEventListener('resize', function () {
+        that.$store.commit('getFooterHeight', that.$el.clientHeight)
+      })
+    }
+  }
+</script>
 <style scoped>
 	a{
 		color: white;

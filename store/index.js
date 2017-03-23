@@ -3,21 +3,26 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 const store = new Vuex.Store({
-  state: {
-    page: 'index',
-    statusError: true
-  },
-  getters: {
-    cons: () => {
-      return 2
-    }
-  },
-  mutations: {
-    increment (state, page) {
-      state.page = page
-    },
-    error (state, statusError) {
-      state.statusError = statusError
+  modules: {
+    index: {
+      state: {
+        page: 'index',
+        statusError: true,
+        footerHeight: 0
+      },
+      mutations: {
+        increment (state, page) {
+          console.log(state)
+          console.log(1)
+          state.page = page
+        },
+        error (state, statusError) {
+          state.statusError = statusError
+        },
+        getFooterHeight (state, footerHeight) {
+          state.footerHeight = footerHeight
+        }
+      }
     }
   }
 })

@@ -6,6 +6,12 @@ MyPlugin.install = function (Vue, options) {
     methods: {
       getData (url) {
         return axios.get(url)
+      },
+      postData (url, obj) {
+        return axios.post(url, obj)
+      },
+      scroll (callback) {
+        window.addEventListener('scroll', callback)
       }
     }
   })
