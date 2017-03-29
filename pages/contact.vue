@@ -117,7 +117,7 @@ foreach可遍历数组
   export default {
     data (context) {
       return {
-        name: context.route.name,
+        // name: context.route.name,
         dataList: [
           {
             text: '',

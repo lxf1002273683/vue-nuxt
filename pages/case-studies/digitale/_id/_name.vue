@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-row>
-        <el-col :lg="24" :sm="24" :xs="24" v-for="item in lists">
+        <el-col :lg="24" :sm="24" :xs="24" v-for="item in lists" :key = "item">
           <div class="btn">
               <!-- 使用懒加载 -->
               <h4>{{item.title}}</h4>

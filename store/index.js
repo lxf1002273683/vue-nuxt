@@ -12,8 +12,6 @@ const store = new Vuex.Store({
       },
       mutations: {
         increment (state, page) {
-          console.log(state)
-          console.log(1)
           state.page = page
         },
         error (state, statusError) {

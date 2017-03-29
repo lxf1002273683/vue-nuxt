@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-carousel :height="height">
-      <el-carousel-item v-for="item in items">
+      <el-carousel-item v-for="item in items" :key = "item">
         <div class="bg"><!-- :style="{backgroundImage: 'url(' + item.url + ')'}" -->
           <img ref="img" :src="item.url">
           <div class="text">
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="section">
-      <div class="list" v-for="item in list">
+      <div class="list" v-for="item in list" :key = "item">
             <router-link class="btn" to="/">
               <img :src="item.url">
               <h4>{{item.time}}</h4>
@@ -64,7 +64,6 @@
   export default {
     data (context) {
       return {
-        name: context.route.name,
         height: '0px',
         items: [
           {
@@ -113,7 +112,7 @@
       }
     },
     mounted () {
-      this.$store.commit('increment', this.name)
+      this.$store.commit('increment', this.$route.name)
       window.addEventListener('resize', this.resize)
       var that = this
       setTimeout(function () {

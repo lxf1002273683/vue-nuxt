@@ -11,7 +11,7 @@
     </ul>
     <div class="grid">
     <el-row>
-        <el-col :lg="11" :sm="11" :xs="24" v-for="item in lists">
+        <el-col :lg="11" :sm="11" :xs="24" v-for="item in lists" :key = "item">
           <div class="btn">
             <router-link :to="'/case-studies/digitale/'+item.id+'/'+item.name">
               <!-- 使用懒加载 -->
