@@ -63,6 +63,7 @@
 <script>
   export default {
     data (context) {
+      console.log(context)
       return {
         height: '0px',
         items: [

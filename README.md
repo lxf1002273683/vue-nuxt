@@ -17,9 +17,6 @@ $ npm run generate
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
-
-未使用状态管理
-
 ## 使用技术
 
 less css预编译
