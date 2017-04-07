@@ -42,6 +42,7 @@
     <div class="discoveryBanner">
       <div class="discoveryBanner__content">
         <h1>Discovery.</h1>
+        <h1>Discovery.</h1>
         <span>
           Investigating and identifying drivers from across your business's people, process and technology that will lead to more successful outcomes.
         </span>
